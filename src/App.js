@@ -1,38 +1,38 @@
 import "./App.css";
-import Dashboard from "./components/dashboard.jsx";
-import Search from "./components/search.jsx";
+
 import Filter from "./components/filter.jsx";
-import { useState } from "react";
+import Search from "./components/search.jsx";
+import Dashboard from "./components/dashboard.jsx";
+import { useState, useEffect } from "react";
 
 function App() {
-  const [url, setUrl] = useState("");
   const [query, setQuery] = useState("");
   const [filter, setFilter] = useState("");
 
-  function setApiUrl() {
-    if (!query) {
-      alert("Enter a query.");
-    } else {
-      setUrl(
-        "http://20.191.211.229:5000/v1/datafiles?show_metadata=true&" + query
+  function isUrlSet(query) {
+    if (query) {
+      return (
+        <Dashboard
+          url={
+            "http://20.191.211.229:5000/v1/datafiles?show_metadata=true&" +
+            query +
+            filter
+          }
+        ></Dashboard>
       );
     }
   }
 
   return (
     <>
-      <Search setSearchQuery={setQuery}></Search>
-      <Filter setFilterQuery={setFilter}></Filter>
-      <button
-        type="submit"
-        value="Search"
-        className="btn btn-block"
-        onClick={setApiUrl}
-      >
-        Search
-      </button>
-      {url + filter}
-      <Dashboard url={url + filter}></Dashboard>
+      <Search setQuery={setQuery}></Search>
+      <div className="filter-dashboard">
+        <Filter setFilter={setFilter}></Filter>
+        <div className="dashboard">
+          <p>{query + filter}</p>
+          {isUrlSet(query)}
+        </div>
+      </div>
     </>
   );
 }

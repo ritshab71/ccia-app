@@ -1,109 +1,167 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
 
 * {
-  margin: 0;
   padding: 0;
   list-style: none;
   font-family: "Poppins", sans-serif;
 }
 
-.App {
+body,
+html {
+  margin: 0;
+  padding: 0;
+}
+
+/* SEARCH */
+
+.search-form {
+  background-color: rgb(159, 180, 194);
+  padding: 20px;
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+}
+
+.search-input {
+  margin: 0;
+  background-color: white;
+  border-radius: 4px;
   text-align: center;
-  background-color: #e8ebf3;
+  width: 100%;
+  border: 1px solid white;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-.input-form {
+.search-by {
+  background-color: white;
+  border-radius: 4px;
   text-align: center;
-  padding: 5px;
-  margin: 5px;
+  width: 95%;
+  border: 1px solid white;
 }
 
-.input-form .search-bar {
-  padding: 10px;
-  margin: 20px;
+.button {
+  background-color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.search-error {
+  color: red;
+  font-size: 10px;
+  position: absolute;
+}
+
+/* FILTER */
+
+.filter-dashboard {
+  background-color: rgba(206, 206, 206, 0.473);
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  padding: 20px;
+  height: calc(100vh - 97px);
 }
 
 .filter-form {
+  background-color: rgba(206, 206, 206, 0.473);
+  border: 1px solid white;
+  border-radius: 4px;
+  font-size: 12px;
+  width: 95%;
+}
+
+.filter-form .f-option {
+  padding: 20px;
+  width: 40%;
+}
+
+.filter-form .f-form {
+  width: 60%;
+  padding: 20px;
+}
+
+.form-box {
+  width: 100%;
+  background-color: white;
+  border-radius: 4px;
+}
+
+.reset-filter {
+  margin-top: 40px;
   text-align: center;
+}
+
+/* DASHBOARD */
+
+.dashboard {
   padding: 10px;
-  margin-left: 20px;
+  border: 1px solid white;
+  border-radius: 4px;
+  overflow-y: scroll;
 }
 
-.filter-form div {
-  padding: 10px;
-  margin: 20px;
-}
-
-.search-bar {
-  width: 50%;
-  text-align: left;
-}
-
-.search-form {
-  text-align: center;
-  background-color: rgba(115, 137, 155, 0.548);
+.results-header {
+  text-align: right;
+  margin-right: 10px;
 }
 
 .dashboard-panel {
-  background-color: rgba(241, 241, 241, 1);
+  font-size: 12px;
+  width: 100%;
+  min-width: 900px;
+  padding: 5px;
 }
 
-.datafiles {
-  margin: 10px;
-  background-color: rgb(255, 255, 255);
-  border-radius: 5px;
-  border: 1px solid black;
+.result-panel {
+  width: 100%;
   padding: 10px;
-  font-size: 15px;
+  margin: 5px;
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.342);
+  background-color: rgb(255, 255, 255);
 }
 
-.filedata {
-  margin: 10px;
-  background-color: rgba(232, 235, 243, 1);
+.result-panel table {
+  width: 100%;
   border-radius: 5px;
-  border: 1px solid black;
-  padding: 5px;
+  text-align: left;
+  table-layout: fixed;
+  word-break: break-all;
+  word-wrap: break-word;
 }
 
-.metadata {
-  margin: 10px;
-  background-color: rgba(233, 206, 242, 0.3);
+.result-panel table td {
+  min-width: 120px;
+  width: 14.6%;
+  padding: 10px;
+}
+
+.heading {
+  color: rgba(128, 128, 128, 0.585);
+}
+
+.filetype {
+  background-color: rgba(180, 199, 218, 0.489);
+  text-align: center;
   border-radius: 5px;
-  border: 1px solid black;
-  padding: 5px;
+  width: 50%;
+}
+
+.sampletype {
+  background-color: rgba(182, 235, 204, 0.489);
+  text-align: center;
+  border-radius: 5px;
+  width: 50%;
+}
+
+.genome {
+  background-color: rgba(182, 183, 235, 0.489);
+  text-align: center;
+  border-radius: 5px;
+  width: 50%;
+}
+
+.platform {
+  background-color: rgba(235, 207, 182, 0.489);
+  text-align: center;
+  border-radius: 5px;
+  width: 50%;
 }
