@@ -15,7 +15,7 @@ function Dashboard({ url }) {
         return res.json();
       })
       .then(files => {
-        setDatafiles(files.data);
+        setDatafiles(files);
       });
   }, [url]);
 

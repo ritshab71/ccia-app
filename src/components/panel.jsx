@@ -15,25 +15,28 @@ function Panel({ result, index }) {
           </tr>
           <tr>
             <td>
-              <p>{result.email}</p>
+              <p>{result.filename}</p>
             </td>
             <td>
-              <p className="filetype">{result.last_name}</p>
+              <p className="filetype">{result.filetype}</p>
             </td>
             <td>
-              <p>{result.first_name}</p>
+              <p>{result._metadata.patient_id}</p>
             </td>
             <td>
-              <p>{result.last_name}</p>
+              <p>{result._metadata.sample_id}</p>
             </td>
             <td>
-              <p className="sampletype">{result.last_name}</p>
+              <p className="sampletype">{result._metadata.sample_type}</p>
             </td>
             <td>
               <p className="genome">{result.last_name}</p>
             </td>
             <td>
-              <p className="platform">{result.last_name}</p>
+              <p className="platform">{result._metadata.refgenome}</p>
+            </td>
+            <td>
+              <p>None</p>
             </td>
           </tr>
         </table>
