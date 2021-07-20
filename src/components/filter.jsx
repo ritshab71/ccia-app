@@ -4,20 +4,33 @@ import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
+import ErrorOutlineIcon from "@material-ui/icons/ErrorOutline";
 import React from "react";
 
 function Filter({ setFilter }) {
+  // stores the filetype selected
   const [fileType, setFileType] = useState("");
+  // stores the minimum size entered by the user (whether valid or invalid)
   const [minSize, setMinSize] = useState("");
+  // only stores the valid min size after error checking
+  const [validMinSize, setValidMinSize] = useState("");
+  // stores the maximum size entered by the user (whether valid or invalid)
   const [maxSize, setMaxSize] = useState("");
+  // only stores the valid max size after error checking
+  const [validMaxSize, setValidMaxSize] = useState("");
+  // stores the sample type selected
   const [sampleType, setSampleType] = useState("");
+  // stores the refgenome selected
   const [refGenome, setRefGenome] = useState("");
-
+  // initialises error statements for both min and max sizes to "none"
   const [errorMin, setErrorMin] = useState("none");
   const [errorMax, setErrorMax] = useState("none");
 
+  // function that clears all the set filter parameters to be empty when called
   function resetFilters() {
     setFileType("");
+    setValidMinSize("");
+    setValidMaxSize("");
     setMinSize("");
     setMaxSize("");
     setSampleType("");
@@ -26,13 +39,20 @@ function Filter({ setFilter }) {
     setErrorMax("none");
   }
 
+  // every time the user inputs into the minsize/maxsize box it checks through
+  // a regex expression whether it is a number being inputted, if it is not then
+  // the error is set to display as a "block" and the error will only be removed
+  // from view once valid input then resurfaces, if it is valid input then the
+  // valid number is then set to setValidMinSize/setValidMaxSize
   function handleMin(e) {
     const regex = /^[0-9\b]+$/;
     if (!regex.test(e) && e) {
       setMinSize(e);
+      setValidMinSize("");
       setErrorMin("block");
     } else {
       setMinSize(e);
+      setValidMinSize(e);
       setErrorMin("none");
     }
   }
@@ -41,20 +61,26 @@ function Filter({ setFilter }) {
     const regex = /^[0-9\b]+$/;
     if (!regex.test(e) && e) {
       setMaxSize(e);
+      setValidMaxSize("");
       setErrorMax("block");
     } else {
       setMaxSize(e);
+      setValidMaxSize(e);
       setErrorMax("none");
     }
   }
 
+  // appends all the filter parameters together in a string only if they have
+  // been selected
   var selectedFilter =
     `${fileType ? `&filetype=${fileType}` : ""}` +
-    `${minSize ? `&minsize=${minSize}` : ""}` +
-    `${maxSize ? `&maxsize=${maxSize}` : ""}` +
+    `${validMinSize ? `&min_size=${validMinSize}` : ""}` +
+    `${validMaxSize ? `&max_size=${validMaxSize}` : ""}` +
     `${sampleType ? `&sample_type=${sampleType}` : ""}` +
     `${refGenome ? `&refgenome=${refGenome}` : ""}`;
 
+  // everytime the filter is updated it dynamically changes the api url and makes a new
+  // call to reflect the selected filter parameter, without the need of clicking a submit button
   useEffect(() => {
     setFilter(selectedFilter);
   }, [setFilter, selectedFilter]);
@@ -64,7 +90,7 @@ function Filter({ setFilter }) {
       <table>
         <tr>
           <td className="f-option">
-            <b>Filetype:</b>
+            <p class="f-header">Filetype:</p>
           </td>
           <td className="f-form">
             <FormControl variant="outlined" size="small" className="form-box">
@@ -95,7 +121,7 @@ function Filter({ setFilter }) {
         </tr>
         <tr>
           <td className="f-option">
-            <b>Minimum filesize:</b>
+            <p class="f-header">Minimum filesize:</p>
           </td>
           <td className="f-form">
             <TextField
@@ -108,13 +134,14 @@ function Filter({ setFilter }) {
               onChange={e => handleMin(e.target.value)}
             />
             <div className="search-error" style={{ display: errorMin }}>
-              Not a valid number of bytes!
+              <ErrorOutlineIcon fontSize="small"></ErrorOutlineIcon>
+              <h8>Enter number of bytes!</h8>
             </div>
           </td>
         </tr>
         <tr>
           <td className="f-option">
-            <b>Maximum filesize:</b>
+            <p class="f-header">Maximum filesize:</p>
           </td>
           <td className="f-form">
             <TextField
@@ -127,13 +154,14 @@ function Filter({ setFilter }) {
               onChange={e => handleMax(e.target.value)}
             />
             <div className="search-error" style={{ display: errorMax }}>
-              Not a valid number of bytes!
+              <ErrorOutlineIcon fontSize="small"></ErrorOutlineIcon>
+              <h8>Enter number of bytes!</h8>
             </div>
           </td>
         </tr>
         <tr>
           <td className="f-option">
-            <b>Sample type:</b>
+            <p class="f-header">Sample type:</p>
           </td>
           <td className="f-form">
             <FormControl variant="outlined" size="small" className="form-box">
@@ -153,7 +181,7 @@ function Filter({ setFilter }) {
         </tr>
         <tr>
           <td className="f-option">
-            <b>Reference genome:</b>
+            <p class="f-header">Reference genome:</p>
           </td>
           <td className="f-form">
             <FormControl variant="outlined" size="small" className="form-box">
@@ -170,10 +198,10 @@ function Filter({ setFilter }) {
           </td>
         </tr>
       </table>
-      <div className="reset-filter">
-        <Button variant="outlined" color="primary" onClick={resetFilters}>
+      <div className="reset">
+        <button className="reset-filter" onClick={resetFilters}>
           Reset
-        </Button>
+        </button>
       </div>
     </div>
   );

@@ -2,10 +2,12 @@ function Panel({ result, index }) {
   return (
     <>
       <div className="result-panel" id={result.file_id}>
-        <p>Result {index + 1}</p>
+        <p>
+          Result {index + 1} - <b>{result.filename}</b> ({result.filesize}{" "}
+          bytes)
+        </p>
         <table>
           <tr>
-            <td className="heading">Filename</td>
             <td className="heading">Filetype</td>
             <td className="heading">Patient ID</td>
             <td className="heading">Sample ID</td>
@@ -14,9 +16,6 @@ function Panel({ result, index }) {
             <td className="heading">Platform</td>
           </tr>
           <tr>
-            <td>
-              <p>{result.filename}</p>
-            </td>
             <td>
               <p className="filetype">{result.filetype}</p>
             </td>
@@ -30,13 +29,10 @@ function Panel({ result, index }) {
               <p className="sampletype">{result._metadata.sample_type}</p>
             </td>
             <td>
-              <p className="genome">{result.last_name}</p>
+              <p className="genome">{result._metadata.refgenome}</p>
             </td>
             <td>
-              <p className="platform">{result._metadata.refgenome}</p>
-            </td>
-            <td>
-              <p>None</p>
+              <p className="platform">None</p>
             </td>
           </tr>
         </table>
@@ -46,25 +42,3 @@ function Panel({ result, index }) {
 }
 
 export default Panel;
-
-// return (
-//   <div id={result.file_id} className="datafiles">
-//     <p>Result {index + 1}</p>
-//     <div id={"df-" + result.file_id} className="filedata">
-//       <p>
-//         <u>Filedata</u>
-//       </p>
-//       <p>Filename: {result.filename}</p>
-//       <p>Filetype: {result.filetype}</p>
-//     </div>
-//     <div id={"meta-" + result.file_id} className="metadata">
-//       <p>
-//         <u>Metadata</u>
-//       </p>
-//       <p>Patient ID: {result._metadata.patient_id}</p>
-//       <p>Sample ID: {result._metadata.sample_id}</p>
-//       <p>Sample Type: {result._metadata.sample_type}</p>
-//       <p>Genome: {result._metadata.refgenome}</p>
-//     </div>
-//   </div>
-// );
