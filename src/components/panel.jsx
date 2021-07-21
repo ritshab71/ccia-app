@@ -37,6 +37,7 @@ function Panel({ result, index }) {
                   <>
                     <li>
                       <button className="dnanexus-popup">dnanexus</button>
+                      
                     </li>
                     <li>
                       <button className="netapp-popup">netapp</button>
