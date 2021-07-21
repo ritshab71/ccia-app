@@ -59,6 +59,8 @@ function Search({ setCombinedQuery, setOption, setQuery }) {
     setCombinedQuery("");
     setQuery("");
     setOption("");
+    setErrorQuery("none");
+    setErrorOption("none");
     setClickSearch(false);
   }
 
@@ -142,9 +144,8 @@ function Search({ setCombinedQuery, setOption, setQuery }) {
       <div>
         <TextField
           className="search-input"
-          id="search"
+          id="outlined-basic"
           label="Query"
-          type="search"
           size="small"
           variant="outlined"
           value={queryInput}
