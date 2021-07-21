@@ -2,7 +2,7 @@ function Panel({ result, index }) {
   return (
     <>
       <div className="result-panel" id={result.file_id}>
-        <p>
+        <p className="filename-info">
           Result {index + 1} - <b>{result.filename}</b> ({result.filesize}{" "}
           bytes)
         </p>
@@ -32,7 +32,20 @@ function Panel({ result, index }) {
               <p className="genome">{result._metadata.refgenome}</p>
             </td>
             <td>
-              <p className="platform">None</p>
+              <div className="platform-data">
+                {result.dnanexus !== null && result.netapp !== null ? (
+                  <>
+                    <li>
+                      <button className="dnanexus-popup">dnanexus</button>
+                    </li>
+                    <li>
+                      <button className="netapp-popup">netapp</button>
+                    </li>
+                  </>
+                ) : (
+                  <p className="platform-null">None</p>
+                )}
+              </div>
             </td>
           </tr>
         </table>

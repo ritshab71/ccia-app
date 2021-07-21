@@ -157,14 +157,26 @@ html {
 /* DASHBOARD */
 
 .dashboard {
-  /* padding: 10px; */
-  /* border: 1px solid white; */
   border-radius: 4px;
   overflow-y: scroll;
 }
 
+.loading-screen {
+  border-radius: 6px;
+  text-align: center;
+  background-color: white;
+  height: 150px;
+  width: 150px;
+  margin: 0 auto;
+  margin-top: 160px;
+}
+
+.loading-spin {
+  margin-top: 20px;
+}
+
 .results-header {
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }
 
 .results-header .num-results {
@@ -185,6 +197,11 @@ html {
   border-radius: 5px;
   background-color: rgb(255, 255, 255);
   align-items: center;
+  height: 140px;
+}
+
+.filename-info {
+  margin-bottom: 5px;
 }
 
 .result-panel table {
@@ -205,6 +222,7 @@ html {
 
 .heading {
   color: rgba(128, 128, 128, 0.585);
+  font-size: 11px;
 }
 
 .filetype {
@@ -228,9 +246,77 @@ html {
   width: 50%;
 }
 
-.platform {
+.platform-data {
+  align-items: center;
+  justify-content: center;
+}
+
+.dnanexus-popup {
   background-color: rgba(235, 207, 182, 0.489);
   text-align: center;
   border-radius: 5px;
   width: 50%;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  border: none;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.dnanexus-popup:focus {
+  outline: none;
+  background-color: rgba(235, 207, 182, 0.489);
+  text-align: center;
+  border-radius: 5px;
+  width: 50%;
+  border: none;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.dnanexus-popup:hover {
+  outline: none;
+  background-color: rgba(235, 207, 182, 0.644);
+  text-align: center;
+  border-radius: 5px;
+  width: 50%;
+  border: none;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.netapp-popup {
+  background-color: rgba(228, 174, 199, 0.489);
+  text-align: center;
+  border-radius: 5px;
+  width: 50%;
+  border: none;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.netapp-popup:focus {
+  outline: none;
+  background-color: rgba(228, 174, 199, 0.489);
+  text-align: center;
+  border-radius: 5px;
+  width: 50%;
+  border: none;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.netapp-popup:hover {
+  outline: none;
+  background-color: rgba(228, 174, 199, 0.644);
+  text-align: center;
+  border-radius: 5px;
+  width: 50%;
+  border: none;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.platform-null {
+  color: #c4d1df;
 }

@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import Panel from "./panel.jsx";
+import "bootstrap/dist/css/bootstrap.css";
+import Spinner from "react-bootstrap/Spinner";
 
 function Dashboard({ url, option, query }) {
   // stores the results from the api call
@@ -26,28 +28,37 @@ function Dashboard({ url, option, query }) {
   return (
     <>
       {/* If there has been no results from datafiles loaded then show a loading
-    screen (need to create a modal loading screen) */}
-      {!datafiles ? (
-        <div className="loading-screen">Loading...</div>
-      ) : (
-        // else when the datafiles are loaded, each result from datafiles.map
-        // is submitted into panel, so that the specific information can be displayed
-        <div className="dashboard-panel">
-          <div className="results-header">
-            <span className="search-identifier">
-              Searches for {option + `"${query}"`}.
-            </span>
-            <span className="num-results">
-              <b>{datafiles.length === 0 ? "No" : datafiles.length}</b> results
-              found.
-            </span>
+    screen until they have been loaded in */}
+      <div className="dashboard">
+        {!datafiles ? (
+          <div className="loading-screen">
+            <p className="loading-text">Loading</p>
+            <Spinner
+              className="loading-spin"
+              animation="border"
+              variant="primary"
+            />
           </div>
+        ) : (
+          // else when the datafiles are loaded, each result from datafiles.map
+          // is submitted into panel, so that the specific information can be displayed
+          <div className="dashboard-panel">
+            <div className="results-header">
+              <span className="search-identifier">
+                Searches for {option + `"${query}"`}.
+              </span>
+              <span className="num-results">
+                <b>{datafiles.length === 0 ? "No" : datafiles.length}</b>{" "}
+                results found.
+              </span>
+            </div>
 
-          {datafiles.map((result, index) => {
-            return <Panel result={result} index={index}></Panel>;
-          })}
-        </div>
-      )}
+            {datafiles.map((result, index) => {
+              return <Panel result={result} index={index}></Panel>;
+            })}
+          </div>
+        )}
+      </div>
     </>
   );
 }

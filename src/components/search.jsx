@@ -62,6 +62,12 @@ function Search({ setCombinedQuery, setOption, setQuery }) {
     setClickSearch(false);
   }
 
+  function handleKeyEnter(e) {
+    if (e.key === "Enter") {
+      searchQuery();
+    }
+  }
+
   // function that runs when the search button (magnifying glass) is clicked
   function searchQuery() {
     // if no query or option then its invalid
@@ -130,7 +136,7 @@ function Search({ setCombinedQuery, setOption, setQuery }) {
         </FormControl>
         <div className="search-error" style={{ display: errorOption }}>
           <ErrorOutlineIcon fontSize="small"></ErrorOutlineIcon>
-          <h8>Please enter a valid query term.</h8>
+          <h8>Please select a valid option.</h8>
         </div>
       </div>
       <div>
@@ -143,6 +149,7 @@ function Search({ setCombinedQuery, setOption, setQuery }) {
           variant="outlined"
           value={queryInput}
           onChange={e => selectQueryInput(e)}
+          onKeyDown={e => handleKeyEnter(e)}
           InputProps={{
             startAdornment: (
               <InputAdornment position="start">

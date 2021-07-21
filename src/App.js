@@ -1,5 +1,4 @@
 import "./App.css";
-
 import Filter from "./components/filter.jsx";
 import Search from "./components/search.jsx";
 import Dashboard from "./components/dashboard.jsx";
@@ -46,7 +45,7 @@ function App() {
         <Filter setFilter={setFilter}></Filter>
         {/* isUrlSet checks to see whether a option and query are valid so that it can run
         the api call on it */}
-        <div className="dashboard">{isUrlSet(combinedQuery)}</div>
+        {isUrlSet(combinedQuery)}
       </div>
     </>
   );
