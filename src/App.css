@@ -16,19 +16,12 @@ html {
 /* SEARCH */
 
 .search-form {
-  background-color: white;
-  padding: 20px;
-  display: grid;
-  grid-template-columns: 2fr 7fr;
-}
-
-.search-input {
-  margin: 0;
   background-color: #f3f5f7;
-  border-radius: 4px;
-  text-align: center;
-  width: 100%;
-  border: 1px solid white;
+  padding-top: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  grid-template-columns: 16fr 1fr;
+  display: grid;
 }
 
 .search-by {
@@ -36,7 +29,7 @@ html {
   border-radius: 4px;
   text-align: center;
   width: 95%;
-  border: 1px solid white;
+  border: 1px solid #f3f5f7;
 }
 
 .button {
@@ -67,7 +60,7 @@ html {
 
 .search-error {
   color: red;
-  font-size: 10px;
+  font-size: 9px;
   position: absolute;
 }
 
@@ -82,31 +75,36 @@ html {
 .filter-dashboard {
   background-color: #f3f5f7;
   display: grid;
-  grid-template-columns: 2fr 7fr;
-  padding: 20px;
+  grid-template-columns: 2fr 10fr;
+  padding-top: 20px;
+  padding-left: 5px;
+  padding-right: 5px;
   height: calc(100vh - 97px);
 }
 
 .filter-form {
   background-color: white;
-  border: 1px solid white;
   border-radius: 4px;
-  font-size: 12px;
-  width: 95%;
-  height: 400px;
+  width: 246px;
+  height: 500px;
+}
+
+.filter-form table {
+  margin-top: 50px;
 }
 
 .filter-form .f-option {
   padding: 10px;
-  width: 40%;
+  width: 30%;
 }
 
 .f-header {
   color: rgb(42, 108, 165);
+  font-size: 11px;
 }
 
 .filter-form .f-form {
-  width: 60%;
+  width: 70%;
   padding: 10px;
 }
 
@@ -114,6 +112,7 @@ html {
   width: 100%;
   background-color: #f3f5f7;
   border-radius: 4px;
+  font-size: 10px;
 }
 
 .reset {
@@ -129,7 +128,7 @@ html {
   padding: 5px;
   padding-left: 10px;
   padding-right: 10px;
-  font-size: 15px;
+  font-size: 10px;
   cursor: pointer;
 }
 
@@ -141,17 +140,17 @@ html {
   padding: 5px;
   padding-left: 10px;
   padding-right: 10px;
-  font-size: 15px;
+  font-size: 10px;
 }
 
 .reset-filter:hover {
-  background-color: #b8d7f5;
+  background-color: #b8d7f5bf;
   border-radius: 4px;
   border: none;
   padding: 5px;
   padding-left: 10px;
   padding-right: 10px;
-  font-size: 15px;
+  font-size: 10px;
 }
 
 /* DASHBOARD */
@@ -177,6 +176,9 @@ html {
 
 .results-header {
   margin-bottom: 15px;
+  background-color: rgba(139, 185, 213, 0.276);
+  border-radius: 4px;
+  font-size: 11px;
 }
 
 .results-header .num-results {
@@ -186,9 +188,11 @@ html {
 .dashboard-panel {
   font-size: 12px;
   width: 100%;
-  min-width: 900px;
-  /* padding: 5px; */
+  min-width: 880px;
+  padding-left: 5px;
 }
+
+/* PANEL */
 
 .result-panel {
   width: 100%;
@@ -197,11 +201,30 @@ html {
   border-radius: 5px;
   background-color: rgb(255, 255, 255);
   align-items: center;
-  height: 140px;
+  height: 120px;
+  font-size: 11px;
+}
+
+.p-result-panel {
+  width: 100%;
+  padding-left: 10px;
+  border-radius: 5px;
+  background-color: rgb(255, 255, 255);
+  align-items: center;
+  height: 100px;
+  font-size: 11px;
 }
 
 .filename-info {
   margin-bottom: 5px;
+  font-size: 11px;
+}
+
+.platform-available {
+  float: right;
+  background-color: rgba(228, 174, 199, 0.644);
+  text-align: center;
+  border-radius: 5px;
 }
 
 .result-panel table {
@@ -216,7 +239,23 @@ html {
 .result-panel table td {
   text-align: left;
   min-width: 120px;
-  width: 16.66%;
+  width: 20%;
+  padding: 5px;
+}
+
+.p-result-panel table {
+  width: 100%;
+  border-radius: 5px;
+  text-align: center;
+  table-layout: fixed;
+  word-break: break-all;
+  word-wrap: break-word;
+}
+
+.p-result-panel table td {
+  text-align: left;
+  min-width: 120px;
+  width: 20%;
   padding: 5px;
 }
 
@@ -229,59 +268,34 @@ html {
   background-color: rgba(180, 199, 218, 0.489);
   text-align: center;
   border-radius: 5px;
-  width: 50%;
+  width: 38%;
 }
 
 .sampletype {
   background-color: rgba(182, 235, 204, 0.489);
   text-align: center;
   border-radius: 5px;
-  width: 50%;
+  width: 46%;
 }
 
 .genome {
   background-color: rgba(182, 183, 235, 0.489);
   text-align: center;
   border-radius: 5px;
-  width: 50%;
-}
-
-.platform-data {
-  align-items: center;
-  justify-content: center;
+  width: 46%;
 }
 
 .dnanexus-popup {
   background-color: rgba(235, 207, 182, 0.489);
   text-align: center;
   border-radius: 5px;
-  width: 50%;
+  padding-left: 7px;
+  padding-right: 7px;
+  margin-right: 5px;
   margin-top: 5px;
   margin-bottom: 5px;
   border: none;
-  font-size: 12px;
-  cursor: pointer;
-}
-
-.dnanexus-popup:focus {
-  outline: none;
-  background-color: rgba(235, 207, 182, 0.489);
-  text-align: center;
-  border-radius: 5px;
-  width: 50%;
-  border: none;
-  font-size: 12px;
-  cursor: pointer;
-}
-
-.dnanexus-popup:hover {
-  outline: none;
-  background-color: rgba(235, 207, 182, 0.644);
-  text-align: center;
-  border-radius: 5px;
-  width: 50%;
-  border: none;
-  font-size: 12px;
+  font-size: 11px;
   cursor: pointer;
 }
 
@@ -289,34 +303,66 @@ html {
   background-color: rgba(228, 174, 199, 0.489);
   text-align: center;
   border-radius: 5px;
-  width: 50%;
+  padding-left: 8px;
+  padding-right: 8px;
+  margin-right: 5px;
+  margin-top: 5px;
+  margin-bottom: 5px;
   border: none;
-  font-size: 12px;
+  font-size: 11px;
   cursor: pointer;
 }
 
-.netapp-popup:focus {
-  outline: none;
-  background-color: rgba(228, 174, 199, 0.489);
-  text-align: center;
+/* PLATFORM */
+
+.dnanexus-platform {
   border-radius: 5px;
-  width: 50%;
-  border: none;
-  font-size: 12px;
-  cursor: pointer;
+  font-size: 10px;
+  background-color: rgba(235, 207, 182, 0.125);
+  margin-bottom: 10px;
 }
 
-.netapp-popup:hover {
-  outline: none;
-  background-color: rgba(228, 174, 199, 0.644);
-  text-align: center;
+.netapp-platform {
   border-radius: 5px;
-  width: 50%;
-  border: none;
-  font-size: 12px;
-  cursor: pointer;
+  font-size: 10px;
+  background-color: rgba(228, 174, 199, 0.125);
 }
 
-.platform-null {
-  color: #c4d1df;
+.dnanexus-platform table {
+  width: 100%;
+  border-radius: 5px;
+  text-align: center;
+  table-layout: fixed;
+  word-break: break-all;
+  word-wrap: break-word;
+}
+
+.dnanexus-platform table td {
+  text-align: left;
+  min-width: 120px;
+  padding: 5px;
+}
+
+.netapp-platform table td {
+  text-align: left;
+  min-width: 120px;
+  padding: 5px;
+}
+
+.netapp-platform table {
+  width: 100%;
+  border-radius: 5px;
+  text-align: center;
+  table-layout: fixed;
+  word-break: break-all;
+  word-wrap: break-word;
+}
+
+.ccia {
+  padding: 10px;
+}
+
+.ccia-logo {
+  width: 65px;
+  height: 65px;
 }

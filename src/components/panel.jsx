@@ -1,20 +1,29 @@
-function Panel({ result, index }) {
+import React from "react";
+
+function Panel({ result, index, filesize }) {
   return (
     <>
       <div className="result-panel" id={result.file_id}>
-        <p className="filename-info">
-          Result {index + 1} - <b>{result.filename}</b> ({result.filesize}{" "}
-          bytes)
-        </p>
+        <span className="filename-info">
+          Result {index + 1} - <b>{result.filename}</b> ({filesize})
+        </span>
         <table>
-          <tr>
-            <td className="heading">Filetype</td>
-            <td className="heading">Patient ID</td>
-            <td className="heading">Sample ID</td>
-            <td className="heading">Sample Type</td>
-            <td className="heading">Genome</td>
-            <td className="heading">Platform</td>
-          </tr>
+          <col style={{ width: "5%" }}></col>
+          <col style={{ width: "20%" }}></col>
+          <col style={{ width: "40%" }}></col>
+          <col style={{ width: "5%" }}></col>
+          <col style={{ width: "10%" }}></col>
+          <col style={{ width: "25%" }}></col>
+          <thead>
+            <tr>
+              <td className="heading">Filetype</td>
+              <td className="heading">Patient ID</td>
+              <td className="heading">Sample ID</td>
+              <td className="heading">Sample Type</td>
+              <td className="heading">Genome</td>
+              <td className="heading"></td>
+            </tr>
+          </thead>
           <tr>
             <td>
               <p className="filetype">{result.filetype}</p>
@@ -30,23 +39,6 @@ function Panel({ result, index }) {
             </td>
             <td>
               <p className="genome">{result._metadata.refgenome}</p>
-            </td>
-            <td>
-              <div className="platform-data">
-                {result.dnanexus !== null && result.netapp !== null ? (
-                  <>
-                    <li>
-                      <button className="dnanexus-popup">dnanexus</button>
-                      
-                    </li>
-                    <li>
-                      <button className="netapp-popup">netapp</button>
-                    </li>
-                  </>
-                ) : (
-                  <p className="platform-null">None</p>
-                )}
-              </div>
             </td>
           </tr>
         </table>
