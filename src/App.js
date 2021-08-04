@@ -6,6 +6,7 @@ import { useState } from "react";
 
 function App() {
   // combinedQuery = option+query
+
   const [combinedQuery, setCombinedQuery] = useState("");
   // the individual query itself
   const [query, setQuery] = useState("");
