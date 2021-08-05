@@ -67,7 +67,7 @@ ccia-app$ npm install
 Generate a ssh key and save it into 'id_rsa':
 
 ```
-$ ssh-keygen
+$ ssh-keygen -t rsa
 ```
 
 Copy and store the ssh key:
