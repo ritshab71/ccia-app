@@ -2,7 +2,18 @@
 
 ccia-app is a repository containing all React code for the ccia frontend application.
 
+## Frontend Function
+
+- The ccia-app can be used to run queries based on 'patient ID', 'sample ID' through an autocomplete feature that helps the user target their required search query term.
+- It can also run queries through 'filename' by implementing REGEX matching of the search query term to the filenames in the database.
+- Filter parameters can be used to additionally specify a particular type of query based on filetype, minimum and maximum filesize, sample type, reference genome and the platform location.
+- When entering minimum and maximum filesize, the user needs to ensure they input it in a valid format (eg. 10 mb, 23 GB, 4 kb).
+
 ## Frontend Design
+
+<img width="800" alt="Screen Shot 2021-08-05 at 12 20 11 pm" src="https://user-images.githubusercontent.com/86877481/128281672-2c96b549-8f0b-47f4-8bf7-4b40047fe3a4.png">
+
+<img width="800" alt="Screen Shot 2021-08-05 at 12 19 54 pm" src="https://user-images.githubusercontent.com/86877481/128281724-acb51d69-a525-4f21-b431-bd0e195d0521.png">
 
 # Getting Started
 
