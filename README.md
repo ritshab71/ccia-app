@@ -62,7 +62,11 @@ ccia-app$ npm install
 
 # Backend Setup
 
-## 1. SSH Setup
+## 1. IP Access
+
+Contact an admin to register your IP address to the backend server.
+
+## 2. SSH Setup
 
 Generate a ssh key and save it into 'id_rsa':
 
@@ -79,7 +83,7 @@ $ cat id_rsa.pub
 
 Contact an admin to register your ssh key to the backend server.
 
-## 2. API Setup
+## 3. API Setup
 
 Once registered, ssh into the backend repository:
 
